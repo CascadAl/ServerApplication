@@ -49,10 +49,16 @@ class ServerInitializerImpl @Inject constructor(
         routing.post(SALE) {
             try {
                 val item = call.receive<SaleItem>()
-                val index = repository.saveSaleItem(item)
-                val status = Response.Success(
-                    data = SaleResponse(id = index)
-                )
+                val status: Response = if (item.isInsufficientPayment()) {
+                    val index = repository.saveSaleItem(item)
+                    Response.Success(
+                        data = SaleResponse(id = index)
+                    )
+                } else {
+                    Response.Error(
+                        message = PAY_AMOUNT_ERROR
+                    )
+                }
                 call.respond(status)
             } catch (e: Exception) {
                 e.printStackTrace()

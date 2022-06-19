@@ -14,4 +14,6 @@ data class SaleItem(
     val cashier: String,
     val items: List<ProductItem>,
     val payments: List<PaymentItem>
-) : Parcelable
+) : Parcelable {
+    fun isInsufficientPayment() = items.sumOf { it.amount } == payments.sumOf { it.amount }
+}
