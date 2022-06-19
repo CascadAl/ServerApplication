@@ -5,5 +5,5 @@ import kotlinx.parcelize.Parcelize
 
 @Parcelize
 data class SaleRequest(
-    val id: Int
+    val id: Long
 ): Parcelable

@@ -10,12 +10,9 @@ import com.example.serverapplication.data.model.SaleItem
 interface SaleDao {
 
     @Insert(onConflict = OnConflictStrategy.ABORT)
-    fun insert(item: SaleItem)
-
-    @Query("SELECT * FROM SaleItem")
-    fun getSales(): List<SaleItem>
+    fun insert(item: SaleItem): Long
 
     @Query("SELECT * FROM SaleItem WHERE id = :id")
-    fun getSaleById(id: Int): SaleItem
+    fun getSaleById(id: Long): SaleItem?
 
 }
