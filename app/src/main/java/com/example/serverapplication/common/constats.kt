@@ -7,3 +7,6 @@ const val SALE = "/sale"
 const val RECEIPT = "/receipt"
 
 val operations = listOf("sale", "receipt")
+
+const val STRING_DIVIDER = "|"
+const val LIST_DIVIDER = ","
