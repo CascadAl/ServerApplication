@@ -1,5 +1,7 @@
 package com.example.serverapplication.server
 
+import java.io.File
+
 interface ServerInitializer {
-    fun initServerQuery()
+    fun initServerQuery(filesDir: File)
 }

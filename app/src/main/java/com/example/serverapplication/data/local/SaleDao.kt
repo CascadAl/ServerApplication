@@ -12,7 +12,7 @@ interface SaleDao {
     @Insert(onConflict = OnConflictStrategy.ABORT)
     fun insert(item: SaleItem): Long
 
-    @Query("SELECT * FROM SaleItem WHERE id = :id")
+    @Query("SELECT * FROM SaleItem WHERE docId = :id")
     fun getSaleById(id: Long): SaleItem?
 
 }

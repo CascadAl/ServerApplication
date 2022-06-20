@@ -17,6 +17,6 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        server.initServerQuery()
+        server.initServerQuery(filesDir)
     }
 }

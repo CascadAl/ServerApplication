@@ -9,4 +9,4 @@ data class ProductItem(
     val price: Double,
     val quantity: Int,
     val amount: Double
-): Parcelable
+) : Parcelable

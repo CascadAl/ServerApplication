@@ -8,6 +8,8 @@ import com.example.serverapplication.domain.entity.response.ReceiptResponse
 import com.example.serverapplication.domain.entity.response.Response
 import com.example.serverapplication.domain.entity.response.SaleResponse
 import com.example.serverapplication.server.ServerInitializer
+import com.example.serverapplication.utils.FileManager
+import com.example.serverapplication.utils.XmlConverter
 import io.ktor.serialization.gson.*
 import io.ktor.server.application.*
 import io.ktor.server.engine.*
@@ -16,13 +18,14 @@ import io.ktor.server.plugins.contentnegotiation.*
 import io.ktor.server.request.*
 import io.ktor.server.response.*
 import io.ktor.server.routing.*
+import java.io.File
 import javax.inject.Inject
 
 class ServerInitializerImpl @Inject constructor(
     private val repository: MainRepository
 ) : ServerInitializer {
 
-    override fun initServerQuery() {
+    override fun initServerQuery(filesDir: File) {
         embeddedServer(
             factory = Netty,
             port = PORT
@@ -32,7 +35,7 @@ class ServerInitializerImpl @Inject constructor(
             }
             routing {
                 createSupportedOperationsQuery(this)
-                createSaleQuery(this)
+                createSaleQuery(this, filesDir)
                 createReceiptQuery(this)
             }
         }.start(wait = true)
@@ -45,11 +48,18 @@ class ServerInitializerImpl @Inject constructor(
         }
     }
 
-    private fun createSaleQuery(routing: Routing) {
+    private fun createSaleQuery(routing: Routing, filesDir: File) {
         routing.post(SALE) {
             try {
                 val item = call.receive<SaleItem>()
-                val status: Response = if (item.isInsufficientPayment()) {
+                val isInsufficientPayment =
+                    item.items.sumOf { it.amount } == item.payments.sumOf { it.amount }
+                val status: Response = if (isInsufficientPayment) {
+
+                    val filePath = "$filesDir/DocNumber_${item.docNumber}.xml"
+                    val fileText = XmlConverter.fromItemToXml(item)
+                    FileManager.writeToFile(filePath, fileText)
+
                     val index = repository.saveSaleItem(item)
                     Response.Success(
                         data = SaleResponse(id = index)
@@ -73,7 +83,7 @@ class ServerInitializerImpl @Inject constructor(
                 val saleItem = repository.getSaleItemById(item.id)
                 val status: Response = saleItem?.let {
                     Response.Success(
-                        data = ReceiptResponse(image = it.number)
+                        data = ReceiptResponse(image = it.docNumber)
                     )
                 } ?: run {
                     Response.Error(

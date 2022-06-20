@@ -8,4 +8,4 @@ data class PaymentItem(
     val type: String,
     val amount: Double,
     val change: Double
-): Parcelable
+) : Parcelable
