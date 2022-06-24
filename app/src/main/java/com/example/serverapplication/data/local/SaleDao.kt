@@ -1,5 +1,6 @@
 package com.example.serverapplication.data.local
 
+import androidx.lifecycle.LiveData
 import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
@@ -15,4 +16,6 @@ interface SaleDao {
     @Query("SELECT * FROM SaleItem WHERE docId = :id")
     fun getSaleById(id: Long): SaleItem?
 
+    @Query("SELECT * FROM SaleItem")
+    fun getAllSales(): LiveData<List<SaleItem>>?
 }

@@ -12,7 +12,7 @@ class MainRepositoryImpl @Inject constructor(
 ) : MainRepository {
 
     override fun saveSaleItem(item: SaleItem) = local.insert(item)
-
     override suspend fun getSaleItemById(id: Long) = local.getSaleById(id)
+    override suspend fun getAllSales() = local.getAllSales()
 
 }
