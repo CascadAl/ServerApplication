@@ -7,7 +7,7 @@
     <fragment
         android:id="@+id/mainFragment"
         android:name="com.example.serverapplication.ui.main.MainFragment"
-        android:label="fragment_main"
+        android:label="Sales"
         tools:layout="@layout/fragment_main">
         <action
             android:id="@+id/toReceiptFragment"
@@ -16,6 +16,6 @@
     <fragment
         android:id="@+id/receiptFragment"
         android:name="com.example.serverapplication.ui.receipt.ReceiptFragment"
-        android:label="fragment_receipt"
+        android:label="Receipt"
         tools:layout="@layout/fragment_receipt" />
 </navigation>
