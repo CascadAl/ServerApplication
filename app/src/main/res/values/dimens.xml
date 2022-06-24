@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <dimen name="view_height">5dp</dimen>
+    <dimen name="view_height">2dp</dimen>
+    <dimen name="margin_top">10dp</dimen>
     <dimen name="margin_vertical">10dp</dimen>
     <dimen name="margin_horizontal">20dp</dimen>
+    <dimen name="padding_bottom">20dp</dimen>
 
     <dimen name="text_h1">21sp</dimen>
     <dimen name="text_h2">18sp</dimen>
