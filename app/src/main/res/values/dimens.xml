@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="view_height">5dp</dimen>
+    <dimen name="margin_vertical">10dp</dimen>
+    <dimen name="margin_horizontal">20dp</dimen>
+
+    <dimen name="text_h1">21sp</dimen>
+    <dimen name="text_h2">18sp</dimen>
+    <dimen name="text_h3">16sp</dimen>
+    <dimen name="text_h4">15sp</dimen>
+</resources>

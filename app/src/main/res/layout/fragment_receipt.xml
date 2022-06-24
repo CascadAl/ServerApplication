@@ -1,13 +1,101 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context=".ui.receipt.ReceiptFragment">
 
     <androidx.appcompat.widget.AppCompatTextView
-        android:text="Receipt"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        style="@style/ReceiptText.H1.Bold"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="@dimen/margin_horizontal"
+        android:text="@string/label_sale" />
 
-</FrameLayout>
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/doc_number"
+        style="@style/ReceiptText.H1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        tools:text="# 0001" />
+
+    <com.example.serverapplication.widget.TableTextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/margin_horizontal"
+        app:first_title_text="@string/label_name"
+        app:first_title_text_style="@style/ReceiptText.H4.Bold"
+        app:second_title_text="@string/label_qty"
+        app:second_title_text_style="@style/ReceiptText.H4.Bold"
+        app:third_title_text="@string/label_amount"
+        app:third_title_text_style="@style/ReceiptText.H4.Bold" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/items_list"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/margin_horizontal"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/view_height"
+        android:layout_marginHorizontal="@dimen/margin_horizontal"
+        android:background="@drawable/dashed_background" />
+
+    <com.example.serverapplication.widget.TableTextView
+        android:id="@+id/total"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/margin_horizontal"
+        app:first_title_text="@string/label_total"
+        app:first_title_text_style="@style/ReceiptText.H1.Bold"
+        app:third_title_text_style="@style/ReceiptText.H1.Bold" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/view_height"
+        android:layout_marginHorizontal="@dimen/margin_horizontal"
+        android:background="@drawable/dashed_background" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        style="@style/ReceiptText.H3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/margin_horizontal"
+        android:text="@string/label_payed" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/payed_list"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/margin_horizontal"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/view_height"
+        android:layout_marginHorizontal="@dimen/margin_horizontal"
+        android:background="@drawable/dashed_background" />
+
+    <com.example.serverapplication.widget.TableTextView
+        android:id="@+id/cashier"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/margin_horizontal"
+        app:first_title_text="@string/label_cashier"
+        app:first_title_text_style="@style/ReceiptText.H3"
+        app:third_title_text_style="@style/ReceiptText.H3" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        style="@style/ReceiptText.H3.Bold"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="@string/label_fiscal_receipt" />
+
+</androidx.appcompat.widget.LinearLayoutCompat>

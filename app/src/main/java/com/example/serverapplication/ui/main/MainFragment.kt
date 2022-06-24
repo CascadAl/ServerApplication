@@ -2,9 +2,12 @@ package com.example.serverapplication.ui.main
 
 import android.os.Bundle
 import android.view.View
+import androidx.core.os.bundleOf
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import com.example.serverapplication.R
+import com.example.serverapplication.common.SALE_ITEM
+import com.example.serverapplication.data.model.SaleItem
 import com.example.serverapplication.databinding.FragmentMainBinding
 import com.example.serverapplication.ext.toGone
 import com.example.serverapplication.ext.toVisible
@@ -45,7 +48,7 @@ class MainFragment : BaseFragment<FragmentMainBinding>() {
         }
     }
 
-    private fun navigateToReceiptScreen(id: String) {
-        navigateTo(R.id.toReceiptFragment)
+    private fun navigateToReceiptScreen(item: SaleItem) {
+        navigateTo(R.id.toReceiptFragment, bundleOf(SALE_ITEM to item))
     }
 }

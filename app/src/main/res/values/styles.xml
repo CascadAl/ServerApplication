@@ -17,4 +17,37 @@
     <style name="MainText.Grey.H1">
         <item name="android:textSize">18sp</item>
     </style>
+
+    <style name="ReceiptText">
+        <item name="android:textColor">@color/black</item>
+    </style>
+
+    <style name="ReceiptText.H1">
+        <item name="android:textSize">@dimen/text_h1</item>
+    </style>
+
+    <style name="ReceiptText.H1.Bold">
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="ReceiptText.H2">
+        <item name="android:textSize">@dimen/text_h2</item>
+    </style>
+
+    <style name="ReceiptText.H3">
+        <item name="android:textSize">@dimen/text_h3</item>
+    </style>
+
+    <style name="ReceiptText.H3.Bold">
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="ReceiptText.H4">
+        <item name="android:textSize">@dimen/text_h4</item>
+    </style>
+
+    <style name="ReceiptText.H4.Bold">
+        <item name="android:textStyle">bold</item>
+    </style>
+
 </resources>

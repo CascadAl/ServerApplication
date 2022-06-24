@@ -3,4 +3,14 @@
 
     <string name="no_sales_data">No sales data</string>
     <string name="receipt">Receipt</string>
+
+    <string name="label_sale">SALE</string>
+    <string name="label_doc_number"># %1$s</string>
+    <string name="label_name">Name</string>
+    <string name="label_qty">Qty</string>
+    <string name="label_amount">Amount</string>
+    <string name="label_payed">Payed:</string>
+    <string name="label_cashier">Cashier:</string>
+    <string name="label_total">TOTAL:</string>
+    <string name="label_fiscal_receipt">*  FISCAL RECEIPT  *</string>
 </resources>
